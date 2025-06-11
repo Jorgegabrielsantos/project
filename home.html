@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sport Ability Radar</title>
+<link rel="stylesheet" href="home.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Audiowide&family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Tiny5&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<header role="banner">
+  <nav>
+    <div class="logo" aria-label="Sport Ability Radar - Logo" tabindex="0">SportAbility</div>
+    <ul class="nav-links" role="navigation" aria-label="Primary navigation">
+      <li tabindex="0">Home</li>
+      <li tabindex="0">About</li>
+      <li tabindex="0">Contact</li>
+    </ul>
+  </nav>
+</header>
+<main class="container" role="main">
+  <section class="intro-section">
+    <h1>Discover Your Sport Skills</h1>
+    <p class="subtitle">Choose your favorite sport, answer a few questions about your abilities, and see your skill profile visualized.</p>
+  </section>
+  
+  <section class="card" id="step-sport">
+    <div class="step-header">Step 1: Choose Your Sport</div>
+    <select id="sport-select" aria-label="Choose your sport" aria-required="true">
+      <option value="" selected disabled>-- Select a sport --</option>
+      <option value="soccer">Soccer</option>
+      <option value="basketball">Basketball</option>
+      <option value="tennis">Tennis</option>
+    </select>
+  </section>
+  
+  <section class="card" id="step-questions" hidden>
+    <div class="step-header">Step 2: Tell Us About Your Abilities</div>
+    <form id="abilities-form" aria-live="polite" aria-describedby="instructions">
+      <p id="instructions" class="subtitle">Rate your skills from 0 (none) to 10 (expert) for each ability.</p>
+      <div class="questions" id="questions-container" role="list">
+        <!-- Questions inserted dynamically here -->
+      </div>
+      <button type="submit" class="button" aria-label="Submit abilities and view result" id="submit-abilities">See My Skill Profile</button>
+    </form>
+  </section>
+  
+  <section class="card" id="step-result" hidden>
+    <div class="step-header">Step 3: Your Skill Profile</div>
+    <div class="result">
+      <div class="result-title" id="result-title">Your Skills in <span id="result-sport-name"></span></div>
+      <div class="radar-chart-container" role="img" aria-label="Radar chart showing skills in five abilities">
+        <svg viewBox="0 0 360 360" id="radar-svg" aria-hidden="true" focusable="false" width="360" height="360" >
+          <g id="grid-layer"></g>
+          <g id="axes-layer"></g>
+          <polygon id="skill-polygon" fill="rgba(37, 99, 235, 0.4)" stroke="var(--color-accent)" stroke-width="3" />
+          <g id="points-layer"></g>
+          <g id="labels-layer"></g>
+        </svg>
+      </div>
+      <button id="restart-button" class="button" aria-label="Restart and choose sport again">Try Again</button>
+    </div>
+  </section>
+</main>
+
+<script src="home.js"></script>
+</body>
+</html>
+
